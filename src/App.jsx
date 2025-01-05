@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import { Box, Card, Flex, Image, Text, Button } from '@chakra-ui/react'
+import lenyai from "./assets/lenyai.jpg";
+import karaoke from "./assets/karaoke.jpg";
+import steak from "./assets/steak.jpg";
+import qr from "./assets/qr.jpg";
+import receipt from "./assets/receipt.png";
 
 const ITEMS = [
-  { id: 'steak', name: 'Eat Am Are', price: null },
-  { id: 'lenyai', name: 'Lenyai', price: 550 },
-  { id: 'karaoke', name: 'Karaoke', price: 50 },
+  { id: 'steak', name: 'Eat Am Are', price: null, img: steak },
+  { id: 'lenyai', name: 'Lenyai', price: 550, img: lenyai },
+  { id: 'karaoke', name: 'Karaoke', price: 50, img: karaoke },
 ]
 
 function App() {
@@ -65,7 +70,7 @@ function App() {
       {steakClicked && (!steakPriceSelected || !drinkPriceSelected) && (
         <Box mt="4">
           <Text fontSize="2xl">Choose Steak Price:</Text>
-          <Image src='/src/assets/receipt.png' />
+          <Image src={receipt} />
           <Button
             onClick={() => handleSteakPriceSelect(189)}
             mt="2"
@@ -140,7 +145,7 @@ function App() {
         </Box>
       )}
       <Text fontSize="5xl" mt="4">{totalPrice} Baht</Text>
-      <Image src="/src/assets/qr.jpg" boxSize="200px" fit="contain" />
+      <Image src={qr} boxSize="200px" fit="contain" />
       <Button
         onClick={() => handleSpecial(-100)}
         mt="2"
@@ -181,7 +186,8 @@ function App() {
   )
 }
 
-function Item({ id, name, price, onClick, isSelected }) {
+function Item({ id, name, price, img, onClick, isSelected }) {
+  console.log(img)
   return (
     <Card.Root
       height="220px"
@@ -192,7 +198,7 @@ function Item({ id, name, price, onClick, isSelected }) {
       _hover={{ bg: 'gray.100' }}
     >
       <Card.Body display="flex" flexDirection="column" alignItems="center" gap="2">
-        <Image src={`/src/assets/${id}.jpg`} boxSize="100px" borderRadius="full" />
+        <Image src={img} boxSize="100px" borderRadius="full" />
         <Card.Title mt="2">{name}</Card.Title>
         {id !== 'steak' && <Text>{price} Baht</Text>}
       </Card.Body>
