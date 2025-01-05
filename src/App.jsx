@@ -147,7 +147,7 @@ function App() {
       <Text fontSize="5xl" mt="4">{totalPrice} Baht</Text>
       <Image src={qr} boxSize="200px" fit="contain" />
       <Button
-        onClick={() => handleSpecial(-100)}
+        onClick={() => handleSpecial(-119)}
         mt="2"
         ml="2"
         bg={specialApplied ? 'green.200' : 'white'}
@@ -156,7 +156,7 @@ function App() {
         outlineColor="gray.100"
         _hover={{ bg: 'gray.200' }}
       >
-        ไอมิกกดปุ่มนี้ (ค่าตีแบต 100)
+        ไอมิกกดปุ่มนี้ (ค่าตีแบต 100 + 19 ไส้กรอก)
       </Button>
       <Button
         onClick={() => handleSpecial(-40)}
